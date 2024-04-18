@@ -76,7 +76,12 @@ Public Class MovieManagement
     End Sub
 
     Private Sub EditMovie_Click(sender As Object, e As EventArgs) Handles EditMovie.Click
-        UpdateMovieForm.Show()
+        ' Check if a single row has been selected
+        If MovieView.SelectedRows.Count > 1 Then
+            MessageBox.Show("Please select one row to update at a time !!!")
+        Else
+            UpdateMovieForm.Show()
+        End If
     End Sub
 
     ' Delete selected row
