@@ -22,6 +22,7 @@ Partial Class UpdateMovieForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UpdateMovieForm))
         RateTextBox = New TextBox()
         DurationTextBox = New TextBox()
         YearTextBox = New TextBox()
@@ -151,6 +152,7 @@ Partial Class UpdateMovieForm
         Controls.Add(Label4)
         Controls.Add(Label2)
         Controls.Add(Label1)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "UpdateMovieForm"
         Text = "Update Movie Record"
         ResumeLayout(False)

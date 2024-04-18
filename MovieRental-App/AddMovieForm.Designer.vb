@@ -22,6 +22,7 @@ Partial Class AddMovieForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AddMovieForm))
         Label1 = New Label()
         Label2 = New Label()
         Label4 = New Label()
@@ -151,6 +152,7 @@ Partial Class AddMovieForm
         Controls.Add(Label4)
         Controls.Add(Label2)
         Controls.Add(Label1)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "AddMovieForm"
         Text = "Add New Movie"
         ResumeLayout(False)

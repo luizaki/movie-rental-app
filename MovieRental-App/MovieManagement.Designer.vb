@@ -22,6 +22,7 @@ Partial Class MovieManagement
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MovieManagement))
         MovieView = New DataGridView()
         MovieToHome = New Button()
         AddMovie = New Button()
@@ -101,6 +102,7 @@ Partial Class MovieManagement
         Controls.Add(MovieToHome)
         Controls.Add(MovieView)
         Controls.Add(MenuStrip1)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MainMenuStrip = MenuStrip1
         Name = "MovieManagement"
         Text = "Movies"
