@@ -78,4 +78,46 @@ Public Class MovieManagement
     Private Sub EditMovie_Click(sender As Object, e As EventArgs) Handles EditMovie.Click
         UpdateMovieForm.Show()
     End Sub
+
+    ' Delete selected row
+    Private Sub DeleteMovie_Click(sender As Object, e As EventArgs) Handles DeleteMovie.Click
+        MysqlConn = New MySqlConnection With {
+            .ConnectionString = "server=localhost;userid=root;database=movie_rental"
+        }
+
+        Try
+            MysqlConn.Open()
+
+            ' Check if a single row has been selected
+            If MovieView.SelectedRows.Count > 1 Then
+                MessageBox.Show("Please select one row to delete at a time !!!")
+            Else
+                ' Retrieve row
+                Dim row As DataGridViewRow = MovieView.Rows(MovieView.CurrentCell.RowIndex)
+                Dim movie_id As String = row.Cells("movie_id").Value
+                Dim title As String = row.Cells("title").Value
+
+                ' Confirmation message to delete
+                Dim response As DialogResult
+                response = MessageBox.Show("Are you sure you want to delete '" & title & "'?", "", MessageBoxButtons.YesNo)
+                If response = DialogResult.Yes Then
+                    Dim Query As String
+                    Query = "DELETE FROM movie WHERE movie_id = '" & movie_id & "'"
+
+                    COMMAND = New MySqlCommand(Query, MysqlConn)
+                    Dim READER As MySqlDataReader = COMMAND.ExecuteReader()
+
+                    MessageBox.Show("'" & title & "' has been deleted.")
+                End If
+            End If
+
+            LoadMovieTable()
+
+            MysqlConn.Close()
+        Catch ex As MySqlException
+            MessageBox.Show(ex.Message)
+        Finally
+            MysqlConn.Dispose()
+        End Try
+    End Sub
 End Class
