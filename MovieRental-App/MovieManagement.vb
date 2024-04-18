@@ -52,23 +52,9 @@ Public Class MovieManagement
 
     ' Moves the app back to Home
     Private Sub MovieToHome_Click(sender As Object, e As EventArgs) Handles MovieToHome.Click
-        MysqlConn = New MySqlConnection With {
-            .ConnectionString = "server=localhost;userid=root;database=movie_rental"
-        }
-
-        Try
-            MysqlConn.Open()
-
-            ' Open Home Form and close current one
-            Home.Show()
-            Me.Hide()
-
-            MysqlConn.Close()
-        Catch ex As MySqlException
-            MessageBox.Show(ex.Message)
-        Finally
-            MysqlConn.Dispose()
-        End Try
+        ' Open Home Form and close current one
+        Home.Show()
+        Me.Hide()
     End Sub
 
     Private Sub AddMovie_Click(sender As Object, e As EventArgs) Handles AddMovie.Click

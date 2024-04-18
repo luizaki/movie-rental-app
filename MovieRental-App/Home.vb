@@ -46,4 +46,14 @@ Public Class Home
             MysqlConn.Dispose()
         End Try
     End Sub
+
+    Private Sub TrackRentals_Click(sender As Object, e As EventArgs) Handles TrackRentals.Click
+        Rentals.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub NewRental_Click(sender As Object, e As EventArgs) Handles NewRental.Click
+        NewRentalForm.Show()
+        Me.Hide()
+    End Sub
 End Class

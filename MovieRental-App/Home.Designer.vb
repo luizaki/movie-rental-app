@@ -40,7 +40,7 @@ Partial Class Home
         Button1.Name = "Button1"
         Button1.Size = New Size(236, 60)
         Button1.TabIndex = 0
-        Button1.Text = "Check Connection"
+        Button1.Text = "Check DB Connection"
         Button1.UseVisualStyleBackColor = True
         ' 
         ' UpdateMovies
@@ -74,11 +74,11 @@ Partial Class Home
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 30F)
-        Label1.Location = New Point(175, 77)
+        Label1.Location = New Point(156, 77)
         Label1.Name = "Label1"
-        Label1.Size = New Size(574, 81)
+        Label1.Size = New Size(633, 81)
         Label1.TabIndex = 4
-        Label1.Text = "Movie Rental Thingy"
+        Label1.Text = "Movie Rental Manager"
         ' 
         ' ExitButton
         ' 
